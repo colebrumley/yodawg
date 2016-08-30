@@ -1,0 +1,13 @@
+version: '2'
+services:
+  master:
+    image: docker:dind
+    privileged: true
+  apprentice:
+    image: docker:dind
+    privileged: true
+  joiner:
+    depends_on:
+      - master
+      - apprentice
+    build: .
